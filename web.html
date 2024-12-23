@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2C002F;
+            color: white;
+        }
+
+        /* Header Styling */
+        .header-linka {
+            background-color: #3E003C;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .headerContainer {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .headerLinks a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .headerLinks a:hover {
+            color: #d4b0ff;
+            border-bottom: 2px solid #d4b0ff;
+        }
+
+        /* Main Section Styling */
+        .main {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .main::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background: linear-gradient(to top, #2C002F, transparent);
+        }
+
+        .main img {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main img:hover {
+            transform: scale(1.05);
+        }
+
+        #moon {
+            mix-blend-mode: screen;
+            transform: translateY(80px);
+        }
+
+        .navigation-links {
+            color: white;
+            font-size: 25px;
+            text-transform: uppercase;
+            transform: translateY(-140px);
+            position: relative;
+            z-index: 2;
+            transition: font-size 0.3s ease, color 0.3s ease;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigation-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navigation-links a:hover {
+            background-color: #d4b0ff;
+            color: #2C002F;
+        }
+
+        .content {
+            color: white;
+            padding: 30px;
+        }
+
+        .content h2 {
+            margin: 20px;
+            font-size: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .content h2:hover {
+            color: #d4b0ff;
+        }
+
+        /* Footer or Additional Content (if needed) */
+        .footer {
+            padding: 10px;
+            background-color: #3E003C;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    
+    </div>
+
+    <!-- MAIN SECTION -->
+    <section class="main">
+        <img src="stars1.webp" id="stars">
+        <h2 class="navigation-links">
+            Welcome to our web site
+        </h2>
+        <img src="moon2.png" id="moon">
+        <img src="mountains3.png" id="mountains3">
+        <img src="mountains4.webp" id="mountains4">
+        <img src="river5.webp" id="river5">
+        <img src="boat6.webp" id="boat6">
+        <img src="mountains7.webp" id="mountains7">
+    </section>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <h2>Welcome to our web site</h2>
+    </div>
+
+    <!-- FOOTER (if needed) -->
+    <div class="footer">
+        <p>© 2024 All rights reserved.</p>
+    </div>
+
+    <script>
+        let stars = document.getElementById("stars");
+        let moon = document.getElementById("moon");
+        let mountain3 = document.getElementById("mountains3");
+        let mountains4 = document.getElementById("mountains4");
+        let river5 = document.getElementById("river5");
+        let boat6 = document.getElementById("boat6");
+        let navigationLinks = document.querySelector(".navigation-links");
+
+        window.onscroll = function () {
+            let value = scrollY;
+            stars.style.left = value + "px";
+            moon.style.top = value * 4.7 + "px";
+            mountain3.style.top = value * 1.5 + "px";
+            mountains4.style.top = value * 1.2 + "px";
+            river5.style.top = value + "px";
+            boat6.style.left = value * 5 + "px";
+            navigationLinks.style.fontSize = value + "px";
+
+            if (scrollY >= 41) {
+                navigationLinks.style.fontSize = 41 + "px";
+                navigationLinks.style.position = "fixed";
+                if (scrollY >= 394) {
+                    navigationLinks.style.display = "none";
+                } else {
+                    navigationLinks.style.display = "block";
+                }
+            }
+
+            if (scrollY >= 127) {
+                document.querySelector(".main").style.background = "linear-gradient(#376281, #10001f)";
+            } else {
+                document.querySelector(".main").style.background = "linear-gradient(#200016, #10001f)";
+            }
+        }
+    </script>
+</body>
+</html>
